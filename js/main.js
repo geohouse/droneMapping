@@ -41,7 +41,7 @@ function createMapBackground(){
     }  
     console.log("The selected background is:");
     console.log(selectedBackground);
-
+    // Cap the zoom range at what the tiles support
     if(selectedBackground == "ortho"){
         currentBackgroundLayer = L.tileLayer('https://geohouse.github.io/droneMappingCO/mapTiles/Longmont_030422/orthomosaic/{z}/{x}/{-y}.png', {
                     maxZoom:21,
