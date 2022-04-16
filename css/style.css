@@ -1,55 +1,70 @@
-#map {
-    
-    height:800px;
+/* Center website */
+.main {
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  h1 {
+    font-size: 50px;
+    word-break: break-all;
+  }
+
+.row {
+    margin: 8px -16px;
+  }
+
+/* Add padding BETWEEN each column (if you want) */
+.row,
+.row > .column {
+  padding: 18px 18px;
 }
 
-.slide-section{
-    /*display:flex;*/
-    width:98%;
-
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  display: none; /* Hide columns by default */
+  padding: 6px;
 }
 
-#slider{
-    width:100%;
-    height:30px;
-    background: lightseagreen;
-    outline: none;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-    border: solid gainsboro 2px;
-    border-radius: 5px;
+/* Clear floats after rows */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-#slider:hover{
-    opacity: 1;
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
 }
 
-
-.sliderTicks{
-    display: flex;
-    justify-content:space-between;
-    /*padding: 0 5px;*/
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
 }
 
-.sliderTick{
-    text-align: center;
-    /* Change the padding to change the width of the slider too*/
-    padding: 0 5px;
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
 }
 
-.slider-div {
-    padding: 6px 8px;
-    font: 14px/16px Arial, Helvetica, sans-serif;
-    background: white;
-    background: rgba(255,255,255,0.8);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    border-radius: 5px;
+/* Add a grey background color on mouse-over */
+.btn:hover {
+  background-color: #ddd;
 }
-.background-div {
-    padding: 6px 8px;
-    font: 14px/16px Arial, Helvetica, sans-serif;
-    background: white;
-    background: rgba(255,255,255,0.8);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    border-radius: 5px;
+
+/* Add a dark background color to the active button */
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+#myBtnContainer {
+    padding: 5px 18px;
 }
