@@ -16,7 +16,7 @@
 /* Add padding BETWEEN each column (if you want) */
 .row,
 .row > .column {
-  padding: 18px;
+  padding: 18px 18px;
 }
 
 /* Create three equal columns that floats next to each other */
@@ -63,4 +63,8 @@
 .btn.active {
   background-color: #666;
   color: white;
+}
+
+#myBtnContainer {
+    padding: 5px 18px;
 }
