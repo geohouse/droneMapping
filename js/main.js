@@ -29,7 +29,8 @@ customBackgroundSelection.addTo(map);
 var customControlYearSlider = L.control();
 
 customControlYearSlider.update = function(properties){
-    this._div.innerHTML = '<label id="slide-label" for="slider">Years to map</label><input type = "range" id = "slider" name = "slider" min="1" max="2" step="1" value="1">' + 
+    this._div.innerHTML = '<label id="slide-label" for="slider">Month to map</label>' + 
+    '<input type = "range" id = "slider" name = "slider" min="1" max="2" step="1" value="1">' + 
     '<div class="sliderTicks">' + 
         '<p class="sliderTick">Mar. 2022</p>' + 
         '<p class="sliderTick">Apr. 2022</p>' + 
@@ -69,7 +70,7 @@ let backgroundSelector = document.getElementById("background-select");
 let sliderElement = document.getElementById("slider");
 
 function getSelectedBackgroundName(){
-    var data = new FormData(backgroundSelector);
+    let data = new FormData(backgroundSelector);
     var selectedBackground = "";
     for (const entry of data){
             selectedBackground = entry[1];
@@ -85,11 +86,12 @@ function getSelectedMonth(){
     let dateToPlot = document.getElementById("slider").value;
     // This is the name of the folder in both the ortho and the DSM
     // tile locations that contains the tiles for the selected month
+    console.log("Date to plot is: " + dateToPlot)
     let tileFolderNameForDate = ""
-    if (dateToPlot == "Mar. 2022"){
+    if (dateToPlot == "1"){
         tileFolderNameForDate = "Longmont_030422"
     }
-    if (dateToPlot == "Apr. 2022"){
+    if (dateToPlot == "2"){
         tileFolderNameForDate = "Longmont_040822"
     }
     return tileFolderNameForDate;
