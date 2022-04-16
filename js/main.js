@@ -8,10 +8,10 @@ var currentBackgroundLayer;
 customBackgroundSelection.update = function(properties){
     this._div.innerHTML = '<label id="background-label for=background-select">Choose a map to view</label>' + 
     '<form id = "background-select">' + 
-    '    <input type="radio" id="ortho" name="map-type" value="ortho" checked>' + 
-    '    <label for="ortho">Orthomosaic</label>' + 
-    '    <input type="radio" id="dsm" name="map-type" value="dsm">' + 
-    '    <label for="dsm">Digital Surface Model</label>' + 
+    '    <input type="radio" id="orthomosaic" name="map-type" value="orthomosaic" checked>' + 
+    '    <label for="orthomosaic">Orthomosaic</label>' + 
+    '    <input type="radio" id="surfaceModel" name="map-type" value="surfaceModel">' + 
+    '    <label for="surfaceModel">Digital Surface Model</label>' + 
     '</form>' + 
     '</div>';
 };
@@ -26,40 +26,102 @@ customBackgroundSelection.onAdd = function(map){
 
 customBackgroundSelection.addTo(map);
 
-var backgroundSelector = document.getElementById("background-select");
-function createMapBackground(){
+var customControlYearSlider = L.control();
 
-    // Remove any current background layer if one exists.
-    if(currentBackgroundLayer != undefined){
-        map.removeLayer(currentBackgroundLayer);
-    }
+customControlYearSlider.update = function(properties){
+    this._div.innerHTML = '<label id="slide-label" for="slider">Years to map</label><input type = "range" id = "slider" name = "slider" min="1" max="2" step="1" value="1">' + 
+    '<div class="sliderTicks">' + 
+        '<p class="sliderTick">Mar. 2022</p>' + 
+        '<p class="sliderTick">Apr. 2022</p>' + 
+        '</div>';
+};
 
+customControlYearSlider.onAdd = function(map){
+    this._div = L.DomUtil.create('div', 'slider-div');
+    this.update();
+    // Disable map dragging when clicking and dragging within the year slider box (makes it so the slider selects, but
+    // doesn't pan the map at the same time)
+    this._div.onmousedown = (e) => {
+        map.dragging.disable();
+        console.log("selected in slider");
+    };
+    this._div.onmouseup = () => {
+        
+        map.dragging.enable();
+        console.log("selected in slider");
+    };
+    this._div.onmouseover = () => {
+        
+        map.dragging.disable();
+        console.log("selected in slider");
+    };
+    this._div.onmouseout = () => {
+        
+        map.dragging.enable();
+        console.log("selected in slider");
+    };
+        return this._div;
+    };
+
+customControlYearSlider.addTo(map);
+
+let backgroundSelector = document.getElementById("background-select");
+let sliderElement = document.getElementById("slider");
+
+function getSelectedBackgroundName(){
     var data = new FormData(backgroundSelector);
     var selectedBackground = "";
     for (const entry of data){
             selectedBackground = entry[1];
     }  
     console.log("The selected background is:");
+    // Should be either 'orthomosaic' or 'surfaceModel'
     console.log(selectedBackground);
-    // Cap the zoom range at what the tiles support
-    if(selectedBackground == "ortho"){
-        currentBackgroundLayer = L.tileLayer('https://geohouse.github.io/droneMappingCO/mapTiles/Longmont_030422/orthomosaic/{z}/{x}/{-y}.png', {
-                    maxZoom:21,
-                    attribution: 'Map tiles made with <a href="https://www.opendronemap.org">OpenDroneMap</a>, using drone images collected by <a href="https://github.com/geohouse">geohouse</a>'
-        });
-    }
+    return selectedBackground;
+}
 
-    if(selectedBackground == "dsm"){
-        currentBackgroundLayer = L.tileLayer('https://geohouse.github.io/droneMappingCO/mapTiles/Longmont_030422/surfaceModel/{z}/{x}/{-y}.png', {
-                    maxZoom:21,
-                    attribution: 'Map tiles made with <a href="https://www.opendronemap.org">OpenDroneMap</a>, using drone images collected by <a href="https://github.com/geohouse">geohouse</a>'
-        });
+function getSelectedMonth(){
+    // Will be either 'Mar. 2022' or 'Apr. 2022'
+    let dateToPlot = document.getElementById("slider").value;
+    // This is the name of the folder in both the ortho and the DSM
+    // tile locations that contains the tiles for the selected month
+    let tileFolderNameForDate = ""
+    if (dateToPlot == "Mar. 2022"){
+        tileFolderNameForDate = "Longmont_030422"
     }
+    if (dateToPlot == "Apr. 2022"){
+        tileFolderNameForDate = "Longmont_040822"
+    }
+    return tileFolderNameForDate;
+}
+
+function createTileLayerURL(tileTypeSelection, monthSelection){
+
+    let tileLayerURL = "https://geohouse.github.io/droneMapping/mapTiles/" + monthSelection + "/" + tileTypeSelection + "/{z}/{x}/{-y}.png";
+    return tileLayerURL;
+}
+
+
+function createMapBackground(){
+
+    // Remove any current background layer if one exists.
+    if(currentBackgroundLayer != undefined){
+        map.removeLayer(currentBackgroundLayer);
+    }
+    let tileTypeSelection = getSelectedBackgroundName();
+    let monthSelection = getSelectedMonth();
+    let tileLayerURL = createTileLayerURL(tileTypeSelection, monthSelection);
+    // Cap the zoom range at what the tiles support
+    
+    currentBackgroundLayer = L.tileLayer(tileLayerURL, {
+                maxZoom:21,
+                attribution: 'Map tiles made with <a href="https://www.opendronemap.org">OpenDroneMap</a>, using drone images collected by <a href="https://github.com/geohouse">geohouse</a>'
+    });
     currentBackgroundLayer.addTo(map);
 }
 
 backgroundSelector.addEventListener("change", createMapBackground);
-
+sliderElement.addEventListener("change", createMapBackground);
 /*
 currentBackgroundLayer = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}',{
     attribution: 'Map tiles by <a href="https://usgs.gov">Department of Interior/USGS</a>',
@@ -68,3 +130,14 @@ currentBackgroundLayer.addTo(map);
 */
 
 createMapBackground();
+
+
+
+
+
+
+
+
+
+
+
