@@ -1,4 +1,4 @@
-var map = L.map('map').setView([40.14887986902617,-105.09319176585663],19);
+var map = L.map('map').setView([40.149408,-105.094659],19);
 
 // Need to set the max zoom to 21 here because the tiles go that fine but Leaflet stops at 18 by default.
 
@@ -29,11 +29,11 @@ customBackgroundSelection.addTo(map);
 var customControlYearSlider = L.control();
 
 customControlYearSlider.update = function(properties){
-    this._div.innerHTML = '<label id="slide-label" for="slider">Month to map</label>' + 
+    this._div.innerHTML = '<label id="slide-label" for="slider">Month to map (2022)</label>' + 
     '<input type = "range" id = "slider" name = "slider" min="1" max="2" step="1" value="1">' + 
     '<div class="sliderTicks">' + 
-        '<p class="sliderTick">Mar. 2022</p>' + 
-        '<p class="sliderTick">Apr. 2022</p>' + 
+        '<p class="sliderTick">Mar.</p>' + 
+        '<p class="sliderTick">Apr.</p>' + 
         '</div>';
 };
 
