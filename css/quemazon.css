@@ -1,0 +1,64 @@
+#map {
+    
+    height:800px;
+}
+
+.slide-section{
+    /*display:flex;*/
+    width:98%;
+
+}
+
+#slider{
+    width:100%;
+    height:30px;
+    background: lightseagreen;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    border: solid gainsboro 2px;
+    border-radius: 5px;
+}
+
+#slider:hover{
+    opacity: 1;
+}
+
+
+.sliderTicks{
+    display: flex;
+    justify-content:space-between;
+    /*padding: 0 5px;*/
+}
+
+.sliderTick{
+    text-align: center;
+    /* Change the padding to change the width of the slider too*/
+    padding: 0 5px;
+}
+
+.slider-div {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+.background-div {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.scene-div {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
