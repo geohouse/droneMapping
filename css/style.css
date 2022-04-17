@@ -27,6 +27,14 @@
   padding: 6px;
 }
 
+/* Only have 2 columns (instead of 3) if the screen width is < 800px*/
+@media screen and (max-width: 800px) {
+    .column{
+        width: 50%
+    }
+    
+}
+
 /* Clear floats after rows */
 .row:after {
   content: "";
