@@ -32,16 +32,16 @@
   padding: 10px;
 }
 
-/* Only have 2 columns (instead of 3) if the screen width is < 800px*/
-@media screen and (max-width: 800px) {
+/* Only have 2 columns (instead of 3) if the screen width is < 900px*/
+@media screen and (max-width: 900px) {
     .column{
         width: 50%
     }
     
 }
 
-/* Only have 1 column (instead of 3) if the screen width is < 800px*/
-@media screen and (max-width: 600px) {
+/* Only have 1 column (instead of 3) if the screen width is < 650px*/
+@media screen and (max-width: 650px) {
   .column{
       width: 100%
   }
