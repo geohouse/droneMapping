@@ -11,6 +11,11 @@
 
 .row {
     margin: 0px;
+        /* Needed for more regular wrapping of 'tiles'. 
+    This makes them all the same height, so there will still 
+    be vertical gaps, but not horizontal ones */
+    display: flex;
+    flex-wrap: wrap;
   }
 
 /* Add padding BETWEEN each column (if you want) 
@@ -21,7 +26,7 @@
 */
 /* Create three equal columns that floats next to each other */
 .column {
-  float: left;
+  /*float: left;*/
   width: 33.33%;
   display: none; /* Hide columns by default */
   padding: 10px;
@@ -33,6 +38,14 @@
         width: 50%
     }
     
+}
+
+/* Only have 1 column (instead of 3) if the screen width is < 800px*/
+@media screen and (max-width: 600px) {
+  .column{
+      width: 100%
+  }
+  
 }
 
 /* Clear floats after rows */
