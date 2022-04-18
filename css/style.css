@@ -10,21 +10,21 @@
   }
 
 .row {
-    margin: 8px -16px;
+    margin: 0px;
   }
 
-/* Add padding BETWEEN each column (if you want) */
+/* Add padding BETWEEN each column (if you want) 
 .row,
 .row > .column {
-  padding: 18px 18px;
+  padding: 0px 40px;
 }
-
+*/
 /* Create three equal columns that floats next to each other */
 .column {
   float: left;
   width: 33.33%;
   display: none; /* Hide columns by default */
-  padding: 6px;
+  padding: 10px;
 }
 
 /* Only have 2 columns (instead of 3) if the screen width is < 800px*/
