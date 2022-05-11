@@ -35,7 +35,8 @@ customControlYearSlider.update = function(properties){
     '<div class="sliderTicks">' + 
         '<p class="sliderTick">Mar.</p>' + 
         '<p class="sliderTick">Apr.</p>' + 
-        '<p class="sliderTick">May</p>' + 
+        '<p class="sliderTick">early May</p>' + 
+        '<p class="sliderTick">mid May</p>' + 
         '</div>';
 };
 
@@ -98,6 +99,9 @@ function getSelectedMonth(){
     }
     if (dateToPlot == "3"){
         tileFolderNameForDate = "Longmont_050322"
+    }
+    if (dateToPlot == "4"){
+        tileFolderNameForDate = "Longmont_051022"
     }
     return tileFolderNameForDate;
 }
