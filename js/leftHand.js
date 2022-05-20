@@ -31,12 +31,13 @@ var customControlYearSlider = L.control();
 
 customControlYearSlider.update = function(properties){
     this._div.innerHTML = '<label id="slide-label" for="slider">Month to map (2022)</label>' + 
-    '<input type = "range" id = "slider" name = "slider" min="1" max="4" step="1" value="1">' + 
+    '<input type = "range" id = "slider" name = "slider" min="1" max="5" step="1" value="1">' + 
     '<div class="sliderTicks">' + 
         '<p class="sliderTick">Mar.</p>' + 
         '<p class="sliderTick">Apr.</p>' + 
         '<p class="sliderTick">early May</p>' + 
         '<p class="sliderTick">mid May</p>' + 
+        '<p class="sliderTick">late May</p>' + 
         '</div>';
 };
 
@@ -102,6 +103,9 @@ function getSelectedMonth(){
     }
     if (dateToPlot == "4"){
         tileFolderNameForDate = "Longmont_051022"
+    }
+    if (dateToPlot == "5"){
+        tileFolderNameForDate = "Longmont_051822"
     }
     return tileFolderNameForDate;
 }
