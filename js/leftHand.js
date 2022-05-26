@@ -38,7 +38,21 @@ customControlYearSlider.update = function(properties){
         '<p class="sliderTick">early May</p>' + 
         '<p class="sliderTick">mid May</p>' + 
         '<p class="sliderTick">late May</p>' + 
-        '</div>';
+    '</div>' + 
+    '<div class="sliderTicks">' + 
+        '<p class="sliderTick">     </p>' + 
+        '<p class="sliderTick">     </p>' + 
+        '<p class="sliderTick">-----</p>' + 
+        '<p class="sliderTick">-----</p>' + 
+        '<p class="sliderTick">-----</p>' + 
+    '</div>' + 
+    '<div class="sliderTicks">' + 
+        '<p class="sliderTick">     </p>' + 
+        '<p class="sliderTick">     </p>' + 
+        '<p class="sliderTick">1st wk.</p>' + 
+        '<p class="sliderTick">2nd wk.</p>' + 
+        '<p class="sliderTick">3rd wk.</p>' + 
+    '</div>';
 };
 
 customControlYearSlider.onAdd = function(map){
