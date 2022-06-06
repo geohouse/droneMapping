@@ -31,7 +31,7 @@ var customControlYearSlider = L.control();
 
 customControlYearSlider.update = function(properties){
     this._div.innerHTML = '<label id="slide-label" for="slider">Month to map (2022)</label>' + 
-    '<input type = "range" id = "slider" name = "slider" min="1" max="6" step="1" value="1">' + 
+    '<input type = "range" id = "slider" name = "slider" min="1" max="7" step="1" value="1">' + 
     '<div class="sliderTicks">' + 
         '<p class="sliderTick">Mar.</p>' + 
         '<p class="sliderTick">Apr.</p>' + 
@@ -39,6 +39,7 @@ customControlYearSlider.update = function(properties){
         '<p class="sliderTick">May</p>' + 
         '<p class="sliderTick">May</p>' + 
         '<p class="sliderTick">May</p>' +
+        '<p class="sliderTick">Jun.</p>' +
     '</div>' + 
     '<div class="sliderTicks">' + 
         '<p class="sliderTick">     </p>' + 
@@ -47,6 +48,7 @@ customControlYearSlider.update = function(properties){
         '<p class="sliderTick">-----</p>' + 
         '<p class="sliderTick">-----</p>' + 
         '<p class="sliderTick">-----</p>' + 
+        '<p class="sliderTick">     </p>' + 
     '</div>' + 
     '<div class="sliderTicks">' + 
         '<p class="sliderTick">     </p>' + 
@@ -55,6 +57,7 @@ customControlYearSlider.update = function(properties){
         '<p class="sliderTick">2nd wk.</p>' + 
         '<p class="sliderTick">3rd wk.</p>' + 
         '<p class="sliderTick">4th wk.</p>' + 
+        '<p class="sliderTick">     </p>' + 
     '</div>';
 };
 
@@ -126,6 +129,9 @@ function getSelectedMonth(){
     }
     if (dateToPlot == "6"){
         tileFolderNameForDate = "Longmont_052622"
+    }
+    if (dateToPlot == "7"){
+        tileFolderNameForDate = "Longmont_060622"
     }
     return tileFolderNameForDate;
 }
