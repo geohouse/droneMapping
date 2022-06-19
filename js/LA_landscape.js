@@ -1,5 +1,5 @@
 // LA landscape area mapping
-var map = L.map('map').setView([35.887528,-106.324166],19);
+var map = L.map('map').setView([35.887520,-106.324200],21);
 
 // Need to set the max zoom to 21 here because the tiles go that fine but Leaflet stops at 18 by default.
 
