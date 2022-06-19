@@ -88,7 +88,7 @@
 
 		// If using version 1.7 of the convertor (outputs lots of smaller dirs/files, and 
 		// therefore can be uploaded to GitHub), use the code below to render from the cloud.js file
-		Potree.loadPointCloud("./cloud.js", "LA", function(e){
+		Potree.loadPointCloud("./potreeData/LA_pointCloud_convertedWithPotreeConvert1-7/cloud.js", "LA", function(e){
 			viewer.scene.addPointCloud(e.pointcloud);
 			
 			let material = e.pointcloud.material;
