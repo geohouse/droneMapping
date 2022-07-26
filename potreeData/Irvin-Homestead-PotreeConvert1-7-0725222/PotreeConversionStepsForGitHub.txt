@@ -1,0 +1,1 @@
+.\PotreeConverter_1.7_windows_x64\PotreeConverter_1.7_windows_x64\PotreeConverter.exe E:\DroneMapping\HomesteadMeadows_072522\Irvin-Homestead-1917-7-25-2022-all\entwine_pointcloud\ept-data -o E:\DroneMapping\HomesteadMeadows_072522\Irvin-Homestead-1917-7-25-2022-all\entwine_pointcloud\forPotree
