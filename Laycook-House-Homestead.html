@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>Potree Viewer</title>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./potreeBuild/potree/potree.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./potreeLibs/jquery-ui/jquery-ui.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./potreeLibs/openlayers3/ol.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./potreeLibs/spectrum/spectrum.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./potreeLibs/jstree/themes/mixed/style.css"
+    />
+  </head>
+
+  <body>
+    <script src="./potreeLibs/jquery/jquery-3.1.1.min.js"></script>
+    <script src="./potreeLibs/spectrum/spectrum.js"></script>
+    <script src="./potreeLibs/jquery-ui/jquery-ui.min.js"></script>
+
+    <script src="./potreeLibs/other/BinaryHeap.js"></script>
+    <script src="./potreeLibs/tween/tween.min.js"></script>
+    <script src="./potreeLibs/d3/d3.js"></script>
+    <script src="./potreeLibs/proj4/proj4.js"></script>
+    <script src="./potreeLibs/openlayers3/ol.js"></script>
+    <script src="./potreeLibs/i18next/i18next.js"></script>
+    <script src="./potreeLibs/jstree/jstree.js"></script>
+    <script src="./potreeBuild/potree/potree.js"></script>
+    <script src="./potreeLibs/plasio/js/laslaz.js"></script>
+
+    <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
+    <!-- INCLUDE SETTINGS HERE -->
+
+    <div
+      class="potree_container"
+      style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px"
+    >
+      <div
+        id="potree_render_area"
+        style="
+          background-image: url('./potreeBuild/potree/resources/images/background.jpg');
+        "
+      ></div>
+      <div id="potree_sidebar_container"></div>
+    </div>
+
+    <script type="module">
+      import * as THREE from "./potreeLibs/three.js/build/three.module.js";
+
+      window.viewer = new Potree.Viewer(
+        document.getElementById("potree_render_area")
+      );
+
+      viewer.setEDLEnabled(true);
+      viewer.setFOV(60);
+      viewer.setPointBudget(1_000_000);
+      viewer.loadSettingsFromURL();
+
+      viewer.setDescription("Loading LAZ compressed octree format");
+
+      viewer.loadGUI(() => {
+        viewer.setLanguage("en");
+        $("#menu_appearance").next().show();
+        //viewer.toggleSidebar();
+      });
+
+      // To view on local machine, need to navigate to the potree GitHub repo and type npm start
+      // to start a web browser with address i.e. http://localhost:1234/examples/MyTest.html
+
+      // Code for converting the .laz files from ODM to be ready for Potree viewer (for either v 1.7 or v 2.0 of the
+      // converter):
+      // .exe in Downloads in call below (for testing). Output dir doesn't need to exist; it's made
+      // .\PotreeConverter.exe E:\DroneMapping\LA_yard_3D_061822\45th-Street-6-18-2022-all_3D\entwine_pointcloud\ept-data -o E:\DroneMapping\LA_yard_3D_061822\45th-Street-6-18-2022-all_3D\entwine_pointcloud\forPotree
+      // The key is to point the converter to the ept-data folder within the entwine_pointcloud folder of the ODM output
+
+      // This is added here instead of the import code from the examples
+      // and is copied/pasted from the potree converter instructions here:
+      // https://github.com/potree/PotreeConverter
+      // For use with data converted with the Converter version 2.0 (output is 3 files; 1 is very large
+      // so can't be uploaded to GitHub). This renders using the metadata.json file info.
+
+      // let url = "../pointclouds/data_converted/metadata.json";
+      // Potree.loadPointCloud(url).then(e => {
+      // 	let pointcloud = e.pointcloud;
+      // 	let material = pointcloud.material;
+
+      // 	material.activeAttributeName = "rgba";
+      // 	material.minSize = 2;
+      // 	material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+
+      // 	viewer.scene.addPointCloud(pointcloud);
+      // 	viewer.fitToScreen();
+      // });
+
+      // If using version 1.7 of the convertor (outputs lots of smaller dirs/files, and
+      // therefore can be uploaded to GitHub), use the code below to render from the cloud.js file
+      Potree.loadPointCloud(
+        "./potreeData/Laycook-House-Homestead-PotreeConvert1-7-0725222/cloud.js",
+        "Laycook-House-Homestead",
+        function (e) {
+          viewer.scene.addPointCloud(e.pointcloud);
+
+          let material = e.pointcloud.material;
+          material.size = 1;
+          material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+
+          e.pointcloud.position.x += 3;
+          e.pointcloud.position.y -= 3;
+          e.pointcloud.position.z += 4;
+
+          viewer.fitToScreen();
+        }
+      );
+    </script>
+  </body>
+</html>
