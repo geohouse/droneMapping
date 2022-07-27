@@ -1,80 +1,185 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Drone mapping</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <head>
+    <title>Drone mapping</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
-</style>
-</head>
-<body class="w3-light-grey w3-content" style="max-width:1600px">
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:18px">
-
-  <!-- Header -->
-  <header id="portfolio">
-    <div class="w3-container">
-        <h1><b>Drone-based Mapping</b></h1>
-    </div>
-  </header>
-  <!-- each entry can have more than 1 group - just enter each as class name 
-    separated by space and filter works correctly-->
-  <div id="myBtnContainer">
-    <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-    <button class="btn" onclick="filterSelection('colorado')"> Colorado</button>
-    <button class="btn" onclick="filterSelection('newmexico')"> New Mexico</button>
-    <button class="btn" onclick="filterSelection('leaflet')"> Leaflet</button>
-  </div>
-  <!-- Portfolio Gallery Grid -->
-  <div class="row">
-    <div class="column colorado leaflet">
-      <div class="content">
-        <a href="leftHand.html"><img src="img/lefthand_icon.jpg" alt="Drone map surface model composite" style="width:100%"></a>
-        <h4><a href="leftHand.html">Longmont walking paths through time</a></h4>
-        <p>Orthomosaic maps and digital surface models</p>
-      </div>
-    </div>
-
-      <div class="column newmexico leaflet">
-        <div class="content">
-          <a href="quemazon.html"><img src="img/quemazon_composite.jpg" alt="Drone map surface model composite" style="width:100%"></a>
-          <h4><a href="quemazon.html">Overlay of two maps to expand the area</a></h4>
-          <p>Orthomosaic maps and digital surface models</p>
+    <style>
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Raleway", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="w3-light-grey w3-content" style="max-width: 1600px">
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left: 18px">
+      <!-- Header -->
+      <header id="portfolio">
+        <div class="w3-container">
+          <h1><b>Drone-based Mapping</b></h1>
         </div>
-      </div> 
+      </header>
+      <!-- each entry can have more than 1 group - just enter each as class name 
+    separated by space and filter works correctly-->
+      <div id="myBtnContainer">
+        <button class="btn active" onclick="filterSelection('all')">
+          Show all
+        </button>
+        <button class="btn" onclick="filterSelection('colorado')">
+          Colorado
+        </button>
+        <button class="btn" onclick="filterSelection('newmexico')">
+          New Mexico
+        </button>
+        <button class="btn" onclick="filterSelection('leaflet')">
+          Leaflet (Interactive maps)
+        </button>
+        <button class="btn" onclick="filterSelection('potree')">
+          Potree (Interactive 3-D models)
+        </button>
+      </div>
+      <!-- Portfolio Gallery Grid -->
+      <div class="row">
+        <div class="column colorado potree">
+          <div class="content">
+            <a href="Laycook-House-Homestead.html"
+              ><img
+                src="img/Homestead-with-stream-3D-model-icon.jpg"
+                alt="Three dimensional drone model of homestead buildings and surrounding landscape"
+                style="width: 100%"
+            /></a>
+            <h4>
+              <a href="Laycook-House-Homestead.html"
+                >Historic homestead site in conifer grove with outbuildings and
+                stream</a
+              >
+            </h4>
+            <p>
+              Three-dimensional model of homestead buildings and their
+              surroundings
+            </p>
+          </div>
+        </div>
+        <div class="column colorado potree">
+          <div class="content">
+            <a href="Irvin-Homestead.html"
+              ><img
+                src="img/Homestead-with-path-3D-model-icon.jpg"
+                alt="Three dimensional drone model of homestead buildings and surrounding landscape"
+                style="width: 100%"
+            /></a>
+            <h4>
+              <a href="Irvin-Homestead.html"
+                >Historic homestead site in meadow with outbuildings and rock
+                outcrops</a
+              >
+            </h4>
+            <p>
+              Three-dimensional model of homestead buildings and their
+              surroundings
+            </p>
+          </div>
+        </div>
+        <div class="column colorado leaflet">
+          <div class="content">
+            <a href="leftHand.html"
+              ><img
+                src="img/lefthand_icon.jpg"
+                alt="Drone map surface model composite"
+                style="width: 100%"
+            /></a>
+            <h4>
+              <a href="leftHand.html">Longmont walking paths through time</a>
+            </h4>
+            <p>Orthomosaic maps and digital surface models</p>
+          </div>
+        </div>
 
         <div class="column newmexico leaflet">
           <div class="content">
-            <a href="puebloCanyon.html"><img src="img/pueblocanyon_composite.jpg" alt="Drone map surface model composite" style="width:100%"></a>
-            <h4><a href="puebloCanyon.html">Walking bridge over narrow, deep canyon</a></h4>
+            <a href="quemazon.html"
+              ><img
+                src="img/quemazon_composite.jpg"
+                alt="Drone map surface model composite"
+                style="width: 100%"
+            /></a>
+            <h4>
+              <a href="quemazon.html">Overlay of two maps to expand the area</a>
+            </h4>
+            <p>Orthomosaic maps and digital surface models</p>
+          </div>
+        </div>
+
+        <div class="column newmexico leaflet">
+          <div class="content">
+            <a href="puebloCanyon.html"
+              ><img
+                src="img/pueblocanyon_composite.jpg"
+                alt="Drone map surface model composite"
+                style="width: 100%"
+            /></a>
+            <h4>
+              <a href="puebloCanyon.html"
+                >Walking bridge over narrow, deep canyon</a
+              >
+            </h4>
             <p>Orthomosaic map and digital surface model</p>
           </div>
         </div>
-  <!-- END GRID -->
-  </div>
+        <!-- END GRID -->
+      </div>
 
-  <!-- Footer -->
-  <footer class="w3-container w3-padding-32 w3-dark-grey">
-  <div class="w3-row-padding">
-    <div class="w3">
-      <p>All maps made using <a href="https://www.opendronemap.org/webodm/">WebODM open-source drone mapping software</a> on input images captured by a Parrot Anafi drone being flown by the <a href="https://www.pix4d.com/product/pix4dcapture">Pix4DCapture App </a> while under continuous human supervision.</p>
+      <!-- Footer -->
+      <footer class="w3-container w3-padding-32 w3-dark-grey">
+        <div class="w3-row-padding">
+          <div class="w3">
+            <p>
+              All maps made using
+              <a href="https://www.opendronemap.org/webodm/"
+                >WebODM open-source drone mapping software</a
+              >
+              on input images captured by a Parrot Anafi drone being flown by
+              the
+              <a href="https://www.pix4d.com/product/pix4dcapture"
+                >Pix4DCapture App
+              </a>
+              while under continuous human supervision.
+            </p>
+          </div>
+        </div>
+      </footer>
+
+      <div class="w3-black w3-center w3-padding-24">
+        Powered by
+        <a
+          href="https://www.w3schools.com/w3css/default.asp"
+          title="W3.CSS"
+          target="_blank"
+          class="w3-hover-opacity"
+          >w3.css</a
+        >
+      </div>
+
+      <!-- End page content -->
     </div>
-  </div>
-  </footer>
-  
-  <div class="w3-black w3-center w3-padding-24">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
 
-<!-- End page content -->
-</div>
-
-
-<script src="js/main.js"></script>
-</body>
+    <script src="js/main.js"></script>
+  </body>
 </html>
