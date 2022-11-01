@@ -100,6 +100,38 @@ customControlYearSlider.onAdd = function (map) {
 
 customControlYearSlider.addTo(map);
 
+// Experimental
+
+const dateButtonSelection = L.control();
+
+dateButtonSelection.update = function (properties) {
+  this._div.innerHTML = `
+      <button type="button" class="date-select">Mar</button>
+      <button type="button" class="date-select">Apr</button>
+      <div id="may-buttons">
+      <button type="button" class="date-select">1</button>
+      <button type="button" class="date-select">2</button>
+      <button type="button" class="date-select">3</button>
+      <button type="button" class="date-select">4</button>
+      </div>
+      <button type="button" class="date-select">Jun</button>
+      <button type="button" class="date-select">Jul</button>
+      <button type="button" class="date-select">Aug</button>
+      <button type="button" class="date-select">Sep</button>
+      <button type="button" class="date-select">Oct</button>`;
+};
+
+dateButtonSelection.onAdd = function (map) {
+  this._div = L.DomUtil.create("div", "date-button-div");
+  this.update();
+
+  return this._div;
+};
+
+dateButtonSelection.addTo(map);
+
+//
+
 let backgroundSelector = document.getElementById("background-select");
 let sliderElement = document.getElementById("slider");
 
