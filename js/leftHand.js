@@ -109,10 +109,11 @@ dateButtonSelection.update = function (properties) {
       <button type="button" class="date-select">Mar</button>
       <button type="button" class="date-select">Apr</button>
       <div id="may-buttons">
-      <button type="button" class="date-select">1</button>
-      <button type="button" class="date-select">2</button>
-      <button type="button" class="date-select">3</button>
-      <button type="button" class="date-select">4</button>
+      <p id="may-label">May</p>
+      <button type="button" class="date-select" id="may-1">1</button>
+      <button type="button" class="date-select" id="may-2">2</button>
+      <button type="button" class="date-select" id="may-3">3</button>
+      <button type="button" class="date-select" id="may-4">4</button>
       </div>
       <button type="button" class="date-select">Jun</button>
       <button type="button" class="date-select">Jul</button>
