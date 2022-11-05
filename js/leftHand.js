@@ -106,24 +106,26 @@ const dateButtonSelection = L.control();
 
 dateButtonSelection.update = function (properties) {
   this._div.innerHTML = `
+  <p>Month to map (2022)</p>
+  <div class="date-button-div">
       <button type="button" class="date-select">Mar</button>
       <button type="button" class="date-select">Apr</button>
       <div id="may-buttons">
-      <p id="may-label">May</p>
-      <button type="button" class="date-select" id="may-1">1</button>
-      <button type="button" class="date-select" id="may-2">2</button>
-      <button type="button" class="date-select" id="may-3">3</button>
-      <button type="button" class="date-select" id="may-4">4</button>
+      <button type="button" class="date-select" id="may-1">May Wk 1</button>
+      <button type="button" class="date-select" id="may-2">May Wk 2</button>
+      <button type="button" class="date-select" id="may-3">May Wk 3</button>
+      <button type="button" class="date-select" id="may-4">May Wk 4</button>
       </div>
       <button type="button" class="date-select">Jun</button>
       <button type="button" class="date-select">Jul</button>
       <button type="button" class="date-select">Aug</button>
       <button type="button" class="date-select">Sep</button>
-      <button type="button" class="date-select">Oct</button>`;
+      <button type="button" class="date-select">Oct</button>
+      </div>`;
 };
 
 dateButtonSelection.onAdd = function (map) {
-  this._div = L.DomUtil.create("div", "date-button-div");
+  this._div = L.DomUtil.create("div", "date-div");
   this.update();
 
   return this._div;
@@ -149,8 +151,24 @@ function getSelectedBackgroundName() {
 }
 
 function getSelectedMonth() {
+  // The selected month is the date selector button that
+  // has the class .active on it (only 1 date can have the
+  // .active class at a time)
+
+  // Have to spread the nodeList to an array for filter to work.
+  let dateToPlot = Array.from(dateButtons).filter((dateButton) => {
+    if (dateButton.classList.contains("active")) {
+      return dateButton.innerText;
+    } else {
+      // Return the March date by default
+      return "Mar";
+    }
+  });
+
+  console.log(`Date to plot is: ${dateToPlot}`);
+
   // Will be either 'Mar. 2022' or 'Apr. 2022'
-  let dateToPlot = document.getElementById("slider").value;
+  //let dateToPlot = document.getElementById("slider").value;
   // This is the name of the folder in both the ortho and the DSM
   // tile locations that contains the tiles for the selected month
   console.log("Date to plot is: " + dateToPlot);
@@ -213,6 +231,24 @@ function createMapBackground() {
   });
   currentBackgroundLayer.addTo(map);
 }
+
+const dateButtons = document.querySelectorAll(".date-select");
+
+dateButtons.forEach((dateButton) => {
+  console.log(dateButton);
+  dateButton.addEventListener("click", (event) => {
+    dateButtons.forEach((dateButton) => {
+      // clear any .active class for any button other than the one clicked
+      if (dateButton.innerText !== event.currentTarget.innerText) {
+        dateButton.classList.remove("active");
+      } else {
+        // toggle the .active class for the button clicked.
+        event.currentTarget.classList.toggle("active");
+      }
+      createMapBackground();
+    });
+  });
+});
 
 backgroundSelector.addEventListener("change", createMapBackground);
 sliderElement.addEventListener("change", createMapBackground);
