@@ -76,3 +76,10 @@
   border: solid black 1px;
   border-radius: 3px;
 }
+
+#month-select-label,
+#background-label {
+  display: inline-block;
+  font-size: 1.3rem;
+  margin: 0.4rem 0 0.4rem 0;
+}
