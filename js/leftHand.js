@@ -119,6 +119,7 @@ dateButtonSelection.update = function (properties) {
       <button type="button" class="date-select">Aug</button>
       <button type="button" class="date-select">Sep</button>
       <button type="button" class="date-select">Oct</button>
+      <button type="button" class="date-select">Nov</button>
       </div>`;
 };
 
@@ -169,38 +170,41 @@ function getSelectedMonth() {
   // This is the name of the folder in both the ortho and the DSM
   // tile locations that contains the tiles for the selected month
   let tileFolderNameForDate = "";
-  if (dateToPlot == "Mar") {
+  if (dateToPlot === "Mar") {
     tileFolderNameForDate = "Longmont_030422";
   }
-  if (dateToPlot == "Apr") {
+  if (dateToPlot === "Apr") {
     tileFolderNameForDate = "Longmont_040822";
   }
-  if (dateToPlot == "May Wk 1") {
+  if (dateToPlot === "May Wk 1") {
     tileFolderNameForDate = "Longmont_050322";
   }
-  if (dateToPlot == "May Wk 2") {
+  if (dateToPlot === "May Wk 2") {
     tileFolderNameForDate = "Longmont_051022";
   }
-  if (dateToPlot == "May Wk 3") {
+  if (dateToPlot === "May Wk 3") {
     tileFolderNameForDate = "Longmont_051822";
   }
-  if (dateToPlot == "May Wk 4") {
+  if (dateToPlot === "May Wk 4") {
     tileFolderNameForDate = "Longmont_052622";
   }
-  if (dateToPlot == "Jun") {
+  if (dateToPlot === "Jun") {
     tileFolderNameForDate = "Longmont_060622";
   }
-  if (dateToPlot == "Jul") {
+  if (dateToPlot === "Jul") {
     tileFolderNameForDate = "Longmont_072822";
   }
-  if (dateToPlot == "Aug") {
+  if (dateToPlot === "Aug") {
     tileFolderNameForDate = "Longmont_082622";
   }
-  if (dateToPlot == "Sep") {
+  if (dateToPlot === "Sep") {
     tileFolderNameForDate = "Longmont_091922";
   }
-  if (dateToPlot == "Oct") {
+  if (dateToPlot === "Oct") {
     tileFolderNameForDate = "Longmont_101422";
+  }
+  if (dateToPlot === "Nov") {
+    tileFolderNameForDate = "Longmont_110822";
   }
   return tileFolderNameForDate;
 }
