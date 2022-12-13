@@ -1,21 +1,19 @@
 // Left Hand Creek area mapping
-var map = L.map("map").setView([40.149408, -105.0942], 19);
+const map = L.map("map").setView([40.149408, -105.0942], 19);
 
 // Need to set the max zoom to 21 here because the tiles go that fine but Leaflet stops at 18 by default.
 
-var customBackgroundSelection = L.control();
-var currentBackgroundLayer;
+let customBackgroundSelection = L.control();
+let currentBackgroundLayer;
 
 customBackgroundSelection.update = function (properties) {
-  this._div.innerHTML =
-    '<label id="background-label" for="background-select">Choose a map to view</label>' +
-    '<form id = "background-select">' +
-    '    <input type="radio" id="orthomosaic" name="map-type" value="orthomosaic" checked>' +
-    '    <label for="orthomosaic">Orthomosaic</label>' +
-    '    <input type="radio" id="surfaceModel" name="map-type" value="surfaceModel">' +
-    '    <label for="surfaceModel">Digital Surface Model</label>' +
-    "</form>" +
-    "</div>";
+  this._div.innerHTML = `<label id="background-label" for="background-select">Choose a map to view</label>
+    <form id = "background-select">
+        <input type="radio" id="orthomosaic" name="map-type" value="orthomosaic" checked>
+        <label for="orthomosaic">Orthomosaic</label>
+        <input type="radio" id="surfaceModel" name="map-type" value="surfaceModel">
+        <label for="surfaceModel">Digital Surface Model</label>
+    </form>`;
 };
 
 customBackgroundSelection.onAdd = function (map) {
@@ -120,6 +118,7 @@ dateButtonSelection.update = function (properties) {
       <button type="button" class="date-select">Sep</button>
       <button type="button" class="date-select">Oct</button>
       <button type="button" class="date-select">Nov</button>
+      <button type="button" class="date-select">Dec</button>
       </div>`;
 };
 
@@ -134,12 +133,12 @@ dateButtonSelection.addTo(map);
 
 //
 
-let backgroundSelector = document.getElementById("background-select");
-let sliderElement = document.getElementById("slider");
+let backgroundSelector = document.querySelector("#background-select");
+let sliderElement = document.querySelector("#slider");
 
 function getSelectedBackgroundName() {
-  let data = new FormData(backgroundSelector);
-  var selectedBackground = "";
+  const data = new FormData(backgroundSelector);
+  let selectedBackground = "";
   for (const entry of data) {
     selectedBackground = entry[1];
   }
@@ -205,6 +204,9 @@ function getSelectedMonth() {
   }
   if (dateToPlot === "Nov") {
     tileFolderNameForDate = "Longmont_110822";
+  }
+  if (dateToPlot === "Dec") {
+    tileFolderNameForDate = "Longmont_121222";
   }
   return tileFolderNameForDate;
 }
