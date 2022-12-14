@@ -1,22 +1,78 @@
+/* More intuitive box size by the border*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+/* Allows percentage based heights that are as expected*/
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  background-color: hsl(0, 0%, 95%);
+}
+
 /* Center website */
 .main {
-    max-width: 1000px;
-    margin: auto;
-  }
-  
-  h1 {
-    font-size: 50px;
-    word-break: break-all;
-  }
+  max-width: 1000px;
+  margin: auto;
+}
 
+body,
+button,
+p,
+a,
+h1,
+h2 {
+  font-family: "Raleway", sans-serif;
+  overflow-wrap: break-word;
+}
+
+h1 {
+  /* Sets proportional size in rem*/
+  font-size: calc((36 / 16) * 1rem);
+  padding: 16px 20px;
+}
+
+h2 {
+  /* Sets proportional size in rem*/
+  font-size: calc((20 / 16) * 1rem);
+  text-align: center;
+  margin: 10px 10px 15px 10px;
+}
+
+h2 + p {
+  text-align: center;
+  color: hsl(0, 0%, 35%);
+  margin: 10px;
+}
+
+.project-output {
+  text-align: center;
+  color: hsl(0, 0%, 45%);
+  margin: 6px;
+  font-size: calc((14 / 16) * 1rem);
+}
+
+a {
+  color: hsl(0, 0%, 20%);
+}
 .row {
-    margin: 0px;
-        /* Needed for more regular wrapping of 'tiles'. 
+  margin: 0px;
+  /* Needed for more regular wrapping of 'tiles'. 
     This makes them all the same height, so there will still 
     be vertical gaps, but not horizontal ones */
-    display: flex;
-    flex-wrap: wrap;
-  }
+  display: flex;
+  flex-wrap: wrap;
+}
 
 /* Add padding BETWEEN each column (if you want) 
 .row,
@@ -29,23 +85,21 @@
   /*float: left;*/
   width: 33.33%;
   display: none; /* Hide columns by default */
-  padding: 10px;
+  padding: 10px 0px 10px 20px;
 }
 
 /* Only have 2 columns (instead of 3) if the screen width is < 900px*/
 @media screen and (max-width: 900px) {
-    .column{
-        width: 50%
-    }
-    
+  .column {
+    width: 50%;
+  }
 }
 
 /* Only have 1 column (instead of 3) if the screen width is < 650px*/
 @media screen and (max-width: 650px) {
-  .column{
-      width: 100%
+  .column {
+    width: 100%;
   }
-  
 }
 
 /* Clear floats after rows */
@@ -68,19 +122,21 @@
 
 /* Style the buttons */
 .btn {
+  /* Sets proportional size in rem*/
+  font-size: calc((16 / 16) * 1rem);
   border: none;
   outline: none;
   padding: 12px 16px;
   background-color: white;
   cursor: pointer;
   margin: 3px 1px;
+  color: hsl(0, 0%, 20%);
   /* Helps keep vertical space between buttons when the screen is narrow */
-  
 }
 
 /* Add a grey background color on mouse-over */
 .btn:hover {
-  background-color: #ddd;
+  background-color: hsl(0, 0%, 85%);
 }
 
 /* Add a dark background color to the active button */
@@ -90,5 +146,17 @@
 }
 
 #myBtnContainer {
-    padding: 5px 18px;
+  padding: 5px 20px;
+}
+
+footer {
+  background-color: hsl(0, 0%, 35%);
+  color: hsl(0, 0%, 85%);
+  padding: 24px;
+  margin-top: 24px;
+  text-align: center;
+}
+
+footer a {
+  color: hsl(0, 0%, 85%);
 }

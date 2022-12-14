@@ -1,7 +1,7 @@
 function filterSelection(labelSelection) {
   const columnElements = document.querySelectorAll(".column");
 
-  console.log(columnElements);
+  //console.log(columnElements);
   // Do the filtering by adding/removing the 'show' class from the different
   // columns (safe to add even if it's already there, and safe to remove if it's already gone)
   for (let columnElement of columnElements) {
