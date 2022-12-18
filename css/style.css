@@ -72,6 +72,7 @@ a {
     be vertical gaps, but not horizontal ones */
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 /* Add padding BETWEEN each column (if you want) 
@@ -83,12 +84,14 @@ a {
 /* Create three equal columns that floats next to each other */
 .column {
   /*float: left;*/
-  width: 33.33%;
+  flex: 1 1 350px;
+  max-width: 500px;
   display: none; /* Hide columns by default */
-  padding: 10px 0px 10px 20px;
+  margin: 15px;
+  /* padding: 10px 0px 10px 20px; */
 }
 
-/* Only have 2 columns (instead of 3) if the screen width is < 900px*/
+/* Only have 2 columns (instead of 3) if the screen width is < 900px
 @media screen and (max-width: 900px) {
   .column {
     width: 50%;
@@ -96,11 +99,11 @@ a {
 }
 
 /* Only have 1 column (instead of 3) if the screen width is < 650px*/
-@media screen and (max-width: 650px) {
+/* @media screen and (max-width: 650px) {
   .column {
     width: 100%;
   }
-}
+} */
 
 /* Clear floats after rows */
 .row:after {
