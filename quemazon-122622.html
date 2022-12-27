@@ -8,7 +8,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no"
     />
-    <title>Potree Viewer</title>
+    <title>Canyon mapping</title>
 
     <link
       rel="stylesheet"
@@ -119,8 +119,8 @@
       // If using version 1.7 of the convertor (outputs lots of smaller dirs/files, and
       // therefore can be uploaded to GitHub), use the code below to render from the cloud.js file
       Potree.loadPointCloud(
-        "./potreeData/Laycook-House-Homestead-PotreeConvert1-7-0725222/cloud.js",
-        "Laycook-House-Homestead",
+        "./potreeData/Quemazon-PotreeConvert1-7-122622/cloud.js",
+        "Rock outcrops in canyon",
         function (e) {
           viewer.scene.addPointCloud(e.pointcloud);
 
@@ -133,6 +133,8 @@
           e.pointcloud.position.z += 4;
 
           viewer.fitToScreen();
+          // Remove the description when the data are loaded.
+          viewer.setDescription("");
         }
       );
     </script>
