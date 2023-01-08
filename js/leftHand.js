@@ -102,7 +102,7 @@ const dateButtonSelection = L.control();
 
 dateButtonSelection.update = function (properties) {
   this._div.innerHTML = `
-  <p id="month-select-label">Month to map (2022)</p>
+  <p id="month-select-label">Month to map</p>
   <div class="date-button-div">
       <button type="button" class="date-select">Mar</button>
       <button type="button" class="date-select">Apr</button>
@@ -119,6 +119,7 @@ dateButtonSelection.update = function (properties) {
       <button type="button" class="date-select">Oct</button>
       <button type="button" class="date-select">Nov</button>
       <button type="button" class="date-select">Dec</button>
+      <button type="button" class="date-select">Jan</button>
       </div>`;
 };
 
@@ -207,6 +208,9 @@ function getSelectedMonth() {
   }
   if (dateToPlot === "Dec") {
     tileFolderNameForDate = "Longmont_121222";
+  }
+  if (dateToPlot === "Jan") {
+    tileFolderNameForDate = "Longmont_010623";
   }
   return tileFolderNameForDate;
 }
