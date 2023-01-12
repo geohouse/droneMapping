@@ -71,58 +71,13 @@ a {
   grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
 }
 
-.row {
-  margin: 0px;
-  /* Needed for more regular wrapping of 'tiles'. 
-    This makes them all the same height, so there will still 
-    be vertical gaps, but not horizontal ones */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-/* Add padding BETWEEN each column (if you want) 
-.row,
-.row > .column {
-  padding: 0px 40px;
-}
-*/
-/* Create three equal columns that floats next to each other */
-.column {
-  /*float: left;*/
-  flex: 1 1 350px;
-  /* max-width: 500px; */
-  display: none; /* Hide columns by default */
-  margin: 15px;
-  /* padding: 10px 0px 10px 20px; */
-}
-
-/* Only have 2 columns (instead of 3) if the screen width is < 900px
-@media screen and (max-width: 900px) {
-  .column {
-    width: 50%;
-  }
-}
-
-/* Only have 1 column (instead of 3) if the screen width is < 650px*/
-/* @media screen and (max-width: 650px) {
-  .column {
-    width: 100%;
-  }
-} */
-
-/* Clear floats after rows */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 /* Content */
 article {
+  display: none; /* Hide cards by default */
   background-color: white;
   padding: 10px;
   height: fit-content;
+  margin: 10px 20px;
 }
 
 /* The "show" class is added to the filtered elements */

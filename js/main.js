@@ -1,16 +1,16 @@
 function filterSelection(labelSelection) {
-  const columnElements = document.querySelectorAll(".column");
+  const cardElements = document.querySelectorAll("article");
 
-  //console.log(columnElements);
+  //console.log(cardElements);
   // Do the filtering by adding/removing the 'show' class from the different
-  // columns (safe to add even if it's already there, and safe to remove if it's already gone)
-  for (let columnElement of columnElements) {
+  // cards (safe to add even if it's already there, and safe to remove if it's already gone)
+  for (let cardElement of cardElements) {
     if (labelSelection === "all") {
-      columnElement.classList.add("show");
-    } else if (columnElement.classList.contains(labelSelection)) {
-      columnElement.classList.add("show");
+      cardElement.classList.add("show");
+    } else if (cardElement.classList.contains(labelSelection)) {
+      cardElement.classList.add("show");
     } else {
-      columnElement.classList.remove("show");
+      cardElement.classList.remove("show");
     }
   }
 
