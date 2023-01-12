@@ -65,6 +65,12 @@ h2 + p {
 a {
   color: hsl(0, 0%, 20%);
 }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
+}
+
 .row {
   margin: 0px;
   /* Needed for more regular wrapping of 'tiles'. 
@@ -85,7 +91,7 @@ a {
 .column {
   /*float: left;*/
   flex: 1 1 350px;
-  max-width: 500px;
+  /* max-width: 500px; */
   display: none; /* Hide columns by default */
   margin: 15px;
   /* padding: 10px 0px 10px 20px; */
@@ -113,9 +119,10 @@ a {
 }
 
 /* Content */
-.content {
+article {
   background-color: white;
   padding: 10px;
+  height: fit-content;
 }
 
 /* The "show" class is added to the filtered elements */
