@@ -121,6 +121,7 @@ dateButtonSelection.update = function (properties) {
       <button type="button" class="date-select">Dec</button>
       <button type="button" class="date-select">Jan</button>
       <button type="button" class="date-select">Feb</button>
+      <button type="button" class="date-select">May</button>
       </div>`;
 };
 
@@ -215,6 +216,9 @@ function getSelectedMonth() {
   }
   if (dateToPlot === "Feb") {
     tileFolderNameForDate = "Longmont_020323";
+  }
+  if (dateToPlot === "May") {
+    tileFolderNameForDate = "Longmont_052223";
   }
   return tileFolderNameForDate;
 }
